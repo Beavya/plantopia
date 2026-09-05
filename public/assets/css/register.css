@@ -1,0 +1,28 @@
+.main.register {
+  background: url('../img/background/form-reg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.content.register {
+  max-width: 495px;
+  max-height: 655px;
+}
+
+.form.register {
+  gap: 80px;
+}
+
+@media (max-width: 720px) {
+  .main.register {
+    background: none;
+  }
+
+  .content.register{
+    max-width: 90%;
+  }
+
+  .form.register{
+    gap: 30px;
+  }
+}

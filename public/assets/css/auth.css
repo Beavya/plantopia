@@ -1,0 +1,215 @@
+@import url(main.css);
+@import url(fonts.css);
+@import url(root.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url('../img/background/reg-aut.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.header a {
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  font-weight: var(--font-semibold);
+  text-decoration: none;
+  color: var(--white);
+  background-color: var(--green);
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.header a:hover {
+  background-color: var(--purple);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: url('../img/background/form-aut.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0 0 30px;
+  gap: 30px;
+  width: 100%;
+  max-width: 620px;
+  max-height: 430px;
+  padding: 40px 40px 80px;
+  background-color: var(--white);
+  border-radius: 40px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+  width: 200px;
+  height: 45px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 25px;
+  gap: 15px;
+  border: 3px solid var(--light-gray);
+  border-radius: 10px;
+}
+
+.form-field input {
+  flex: 1;
+  font-size: 1.2rem;
+  color: var(--green);
+  border: none;
+  outline: none;
+}
+
+.form-field input::placeholder {
+  font-size: 1.2rem;
+  color: var(--gray);
+}
+
+.form-field:focus-within {
+  border-color: var(--green);
+}
+
+.form-field:hover input::placeholder {
+  color: var(--green);
+}
+
+.form-field button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.form-field button img {
+  width: 20px;
+  height: 20px;
+}
+
+.form a, .form p {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 20px;
+  font-size: 1.2rem;
+  font-weight: var(--font-semibold);
+  color: var(--light-gray);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.form a:hover, .form p:hover {
+  color: var(--gray);
+}
+
+.submit {
+  margin: auto;
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  color: var(--white);
+  background-color: var(--green);
+  border: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover{
+  background-color: var(--purple);
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 14px;
+  }
+
+  .header {
+    top: 30px;
+    right: 30px;
+  }
+
+  .header a {
+    padding: 10px 20px;
+  }
+
+  .main {
+    background: none;
+  }
+
+  .content {
+    margin: 0;
+    padding: 25px 20px 50px;
+    width: 90%;
+  }
+
+  .logo {
+    width: 140px;
+    height: 30px;
+  }
+
+  .form-field {
+    height: 40px;
+    padding: 0 10px;
+  }
+
+  .form-fields {
+    gap: 15px;
+  }
+
+  .submit {
+    padding: 10px 40px;
+  }
+}

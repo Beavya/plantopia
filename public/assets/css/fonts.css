@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'Neris';
+  src: url('../font/Neris-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neris';
+  src: url('../font/Neris-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neris';
+  src: url('../font/Neris-SemiBold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Neris';
+  src: url('../font/Neris-SemiBoldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+html {
+  font-family: 'Neris', sans-serif;
+  font-weight: var(--font-light);
+  font-size: 16px;
+  color: var(--black);
+}
+
+input {
+  font-family: 'Neris', sans-serif;
+  font-weight: var(--font-semibold);
+}
+
+button {
+  font-family: 'Neris', sans-serif;
+  font-weight: var(--font-semibold);
+}

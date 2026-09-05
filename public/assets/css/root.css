@@ -1,0 +1,15 @@
+ :root {
+  --green: #0E7889;
+  --light-green: #f3f8f9;
+  --purple: #574A7F;
+  --light-purple: #CCC6E0;
+  --very-light-purple: #EFEEF4;
+  --dark-purple: #37325A;
+  --white: #FFFFFF;
+  --light-gray: #DEDEE0;
+  --gray: #ABABAB;
+  --black: #1F1C33;
+  --font-light: 100;
+  --font-semibold: 600;
+  --font-black: 900;
+}
