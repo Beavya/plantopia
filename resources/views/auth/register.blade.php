@@ -10,7 +10,7 @@
     <main class="main register">
         <div class="content register">
             <img class="logo" src="{{ asset('assets/img/icon/logo-green.svg') }}" alt="logo">
-            
+
             <form class="form register" method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="form-content">
