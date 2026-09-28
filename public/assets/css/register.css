@@ -10,7 +10,7 @@
 }
 
 .form.register {
-  gap: 80px;
+  gap: 5vw;
 }
 
 @media (max-width: 720px) {

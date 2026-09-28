@@ -15,29 +15,60 @@
                 @csrf
                 <div class="form-content">
                     <div class="form-fields">
-                        <div class="form-field">
-                            <img class="register-form-icon" src="{{ asset('assets/img/icon/person.svg') }}" alt="person">
-                            <input type="text" name="name" placeholder="Имя" value="{{ old('name') }}" required>
+
+                        <div class="form-field-error">
+                            <div class="form-field @error('name') field-error @enderror">
+                                <img class="register-form-icon" src="{{ asset('assets/img/icon/person.svg') }}" alt="person">
+                                <input type="text" name="name" placeholder="Имя" value="{{ old('name') }}" required>
+                            </div>
+                            @if ($errors->has('name'))
+                                <div class="error-list">
+                                    @foreach ($errors->get('name') as $error)
+                                        <span class="error-text">{{ $error }}</span>
+                                    @endforeach
+                                </div>
+                            @endif
                         </div>
 
-                        <div class="form-field">
-                            <img class="register-form-icon" src="{{ asset('assets/img/icon/email-green.svg') }}" alt="mail">
-                            <input type="email" name="email" placeholder="Почта" value="{{ old('email') }}" required>
+                        <div class="form-field-error">
+                            <div class="form-field @error('email') field-error @enderror">
+                                <img class="register-form-icon" src="{{ asset('assets/img/icon/email-green.svg') }}" alt="mail">
+                                <input type="email" name="email" placeholder="Почта" value="{{ old('email') }}" required>
+                            </div>
+                            @if ($errors->has('email'))
+                                <div class="error-list">
+                                    @foreach ($errors->get('email') as $error)
+                                        <span class="error-text">{{ $error }}</span>
+                                    @endforeach
+                                </div>
+                            @endif
                         </div>
 
-                        <div class="form-field">
-                            <input type="password" name="password" placeholder="Пароль" required>
-                            <button type="button">
-                                <img src="{{ asset('assets/img/icon/eye-open.svg') }}" alt="close">
-                            </button>
+                        <div class="form-field-error">
+                            <div class="form-field @error('password') field-error @enderror">
+                                <input type="password" name="password" placeholder="Пароль" required>
+                                <button type="button">
+                                    <img src="{{ asset('assets/img/icon/eye-open.svg') }}" alt="close">
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="form-field">
-                            <input type="password" name="password_confirmation" placeholder="Подтверждение пароля" required>
-                            <button type="button">
-                                <img src="{{ asset('assets/img/icon/eye-close.svg') }}" alt="open">
-                            </button>
+                        <div class="form-field-error">
+                            <div class="form-field @error('password') field-error @enderror">
+                                <input type="password" name="password_confirmation" placeholder="Подтверждение пароля" required>
+                                <button type="button">
+                                    <img src="{{ asset('assets/img/icon/eye-close.svg') }}" alt="open">
+                                </button>
+                            </div>
+                            @if ($errors->has('password'))
+                                <div class="error-list">
+                                    @foreach ($errors->get('password') as $error)
+                                        <span class="error-text">{{ $error }}</span>
+                                    @endforeach
+                                </div>
+                            @endif
                         </div>
+
                     </div>
 
                     <a href="{{ route('login') }}">Уже есть аккаунт?</a>
