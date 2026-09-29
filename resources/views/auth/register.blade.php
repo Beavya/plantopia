@@ -19,7 +19,7 @@
                         <div class="form-field-error">
                             <div class="form-field @error('name') field-error @enderror">
                                 <img class="register-form-icon" src="{{ asset('assets/img/icon/person.svg') }}" alt="person">
-                                <input type="text" name="name" placeholder="Имя" value="{{ old('name') }}" required>
+                                <input type="text" name="name" placeholder="Имя" value="{{ old('name') }}">
                             </div>
                             @if ($errors->has('name'))
                                 <div class="error-list">
@@ -33,7 +33,7 @@
                         <div class="form-field-error">
                             <div class="form-field @error('email') field-error @enderror">
                                 <img class="register-form-icon" src="{{ asset('assets/img/icon/email-green.svg') }}" alt="mail">
-                                <input type="email" name="email" placeholder="Почта" value="{{ old('email') }}" required>
+                                <input type="email" name="email" placeholder="Почта" value="{{ old('email') }}">
                             </div>
                             @if ($errors->has('email'))
                                 <div class="error-list">
@@ -46,7 +46,7 @@
 
                         <div class="form-field-error">
                             <div class="form-field @error('password') field-error @enderror">
-                                <input type="password" name="password" placeholder="Пароль" required>
+                                <input type="password" name="password" placeholder="Пароль">
                                 <button type="button">
                                     <img src="{{ asset('assets/img/icon/eye-open.svg') }}" alt="close">
                                 </button>
@@ -55,7 +55,7 @@
 
                         <div class="form-field-error">
                             <div class="form-field @error('password') field-error @enderror">
-                                <input type="password" name="password_confirmation" placeholder="Подтверждение пароля" required>
+                                <input type="password" name="password_confirmation" placeholder="Подтверждение пароля">
                                 <button type="button">
                                     <img src="{{ asset('assets/img/icon/eye-close.svg') }}" alt="open">
                                 </button>

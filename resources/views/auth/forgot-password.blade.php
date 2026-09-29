@@ -7,7 +7,6 @@
         <div class="content">
             <img class="logo" src="{{ asset('assets/img/icon/logo-green.svg') }}" alt="logo">
             
-            {{-- Временно без action и method --}}
             <form class="form">
                 @csrf
                 <div class="form-content">

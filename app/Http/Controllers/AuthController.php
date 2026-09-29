@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -46,5 +47,33 @@ class AuthController extends Controller
     public function showLogin()
     {
         return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => ['required', 'max:255'],
+            'password' => ['required', 'max:255'],
+        ], [
+            'required' => 'Не заполнены обязательные поля',
+            'email.max' => 'Максимум 255 символов',
+            'password.max' => 'Максимум 255 символов',
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            return redirect('/');
+        }
+
+        return back()->withErrors([
+            'login' => 'Неверный email или пароль',
+        ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 }
