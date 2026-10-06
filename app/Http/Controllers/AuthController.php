@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,27 +15,8 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        $request->validate([
-            'name' => ['required', 'regex:/^[a-zA-Z0-9]+$/', 'unique:users', 'max:255'],
-            'email' => ['required', 'email', 'unique:users', 'max:255'],
-            'password' => ['required', 'regex:/^[a-zA-Z0-9!@#$%^&*]+$/', 'min:6', 'max:255', 'confirmed'],
-            'password_confirmation' => ['required'],
-        ], [
-            'required' => 'Не заполнены обязательные поля',
-            'name.regex' => 'Только английские буквы и цифры',
-            'name.unique' => 'Это имя уже занято',
-            'name.max' => 'Максимум 255 символов',
-            'email.email' => 'Некорректный email',
-            'email.unique' => 'Эта почта уже занята',
-            'email.max' => 'Максимум 255 символов',
-            'password.regex' => 'Только английские буквы, цифры и символы !@#$%^&*',
-            'password.min' => 'Минимум 6 символов',
-            'password.max' => 'Максимум 255 символов',
-            'password.confirmed' => 'Пароли не совпадают',
-        ]);
-
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -49,17 +31,8 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $request->validate([
-            'email' => ['required', 'max:255'],
-            'password' => ['required', 'max:255'],
-        ], [
-            'required' => 'Не заполнены обязательные поля',
-            'email.max' => 'Максимум 255 символов',
-            'password.max' => 'Максимум 255 символов',
-        ]);
-
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
