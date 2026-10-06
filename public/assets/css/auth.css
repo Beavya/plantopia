@@ -148,11 +148,14 @@ body {
   font-weight: var(--font-semibold);
   color: var(--light-gray);
   text-decoration: none;
-  cursor: pointer;
   transition: color 0.3s ease;
 }
 
-.form a:hover, .form p:hover {
+.form a {
+  cursor: pointer;
+}
+
+.form a:hover{
   color: var(--gray);
 }
 
