@@ -47,8 +47,8 @@
                         <div class="form-field-error">
                             <div class="form-field @error('password') field-error @enderror">
                                 <input type="password" name="password" placeholder="Пароль">
-                                <button type="button">
-                                    <img src="{{ asset('assets/img/icon/eye-open.svg') }}" alt="close">
+                                <button type="button" class="toggle-password">
+                                    <img src="{{ asset('assets/img/icon/eye-open.svg') }}" alt="toggle">
                                 </button>
                             </div>
                         </div>
@@ -56,8 +56,8 @@
                         <div class="form-field-error">
                             <div class="form-field @error('password') field-error @enderror">
                                 <input type="password" name="password_confirmation" placeholder="Подтверждение пароля">
-                                <button type="button">
-                                    <img src="{{ asset('assets/img/icon/eye-close.svg') }}" alt="open">
+                                <button type="button" class="toggle-password">
+                                    <img src="{{ asset('assets/img/icon/eye-close.svg') }}" alt="toggle">
                                 </button>
                             </div>
                             @if ($errors->has('password'))

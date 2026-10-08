@@ -22,8 +22,8 @@
                         <div class="form-field-error">
                             <div class="form-field @error('email') field-error @enderror @error('password') field-error @enderror @error('login') field-error @enderror">
                                 <input type="password" name="password" placeholder="Пароль">
-                                <button type="button">
-                                    <img src="{{ asset('assets/img/icon/eye-close.svg') }}" alt="open">
+                                <button type="button" class="toggle-password">
+                                    <img src="{{ asset('assets/img/icon/eye-open.svg') }}" alt="toggle">
                                 </button>
                             </div>
 
