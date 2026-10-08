@@ -41,4 +41,5 @@ input {
 button {
   font-family: 'Neris', sans-serif;
   font-weight: var(--font-semibold);
+  cursor: pointer;
 }
