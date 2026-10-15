@@ -26,20 +26,32 @@
   font-style: italic;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 html {
   font-family: 'Neris', sans-serif;
   font-weight: var(--font-light);
   font-size: 16px;
   color: var(--black);
+  scroll-behavior: smooth;
 }
 
 input {
   font-family: 'Neris', sans-serif;
   font-weight: var(--font-semibold);
+  border: none;
+  outline: none;
 }
 
 button {
   font-family: 'Neris', sans-serif;
   font-weight: var(--font-semibold);
+  border: none;
+  background: none;
   cursor: pointer;
 }

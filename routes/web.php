@@ -2,18 +2,36 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PersonalAccountController;
 
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+Route::get('/register', [AuthController::class, 'showRegister'])
+    ->middleware('guest')
+    ->name('register');
+Route::post('/register', [AuthController::class, 'register'])
+    ->middleware('guest');
 
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/login', [AuthController::class, 'showLogin'])
+    ->middleware('guest')
+    ->name('login');
+Route::post('/login', [AuthController::class, 'login'])
+    ->middleware('guest');
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/forgot-password', [AuthController::class, 'showForgotPassword'])->name('password.request');
-Route::post('/forgot-password', [AuthController::class, 'sendNewPassword'])->name('password.email');
+Route::get('/forgot-password', [AuthController::class, 'showForgotPassword'])
+    ->middleware('guest')
+    ->name('password.request');
+Route::post('/forgot-password', [AuthController::class, 'sendNewPassword'])
+    ->middleware('guest')
+    ->name('password.email');
+
+Route::get('/settings', [PersonalAccountController::class, 'showSettings'])
+    ->middleware('auth')
+    ->name('settings');
+Route::post('/settings/avatar', [PersonalAccountController::class, 'updateAvatar'])
+    ->middleware('auth')
+    ->name('settings.avatar');

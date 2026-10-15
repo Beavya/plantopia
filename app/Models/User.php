@@ -12,5 +12,19 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar_id',
     ];
+
+    protected static function booted(): void
+    {
+        static::creating(function (User $user) {
+            $clayPot = Avatar::where('file', 'black-girl.png')->first();
+            $user->avatar_id = $clayPot->id;
+        });
+    }
+
+    public function avatar()
+    {
+        return $this->belongsTo(Avatar::class);
+    }
 }
