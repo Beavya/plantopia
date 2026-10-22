@@ -25,34 +25,48 @@
     <div class="container-edits">
         <section class="edit-form">
             <h4>Персональные данные:</h4>
-            <div class="edit-form-fields">
-                <div class="edit-form-field">
-                    <img class="edit-form-icon" src="{{ asset('assets/img/icon/person.svg') }}" alt="person">
-                    <input type="text" name="name" placeholder="Имя" value="{{ $user->name }}">
+
+            <form method="POST" action="{{ route('settings.profile') }}" class="container-edit-form">
+                @csrf
+
+                <div class="edit-form-fields">
+                    <div class="edit-form-field-error">
+                        <div class="edit-form-field">
+                            <img class="edit-form-icon" src="{{ asset('assets/img/icon/person.svg') }}" alt="person">
+                            <input type="text" name="name" placeholder="Имя" value="{{ $user->name }}">
+                        </div>
+                    </div>
+
+                    <div class="edit-form-field-error">
+                        <div class="edit-form-field">
+                            <img class="edit-form-icon" src="{{ asset('assets/img/icon/email-green.svg') }}" alt="mail">
+                            <input type="email" name="email" placeholder="Почта" value="{{ $user->email }}">
+                        </div>
+                    </div>
+
+                    <div class="edit-form-field-error">
+                        <div class="edit-form-field">
+                            <input type="password" name="password" placeholder="Пароль">
+                            <button type="button" class="toggle-password">
+                                <img src="{{ asset('assets/img/icon/eye-open.svg') }}" alt="toggle">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="edit-form-field-error">
+                        <div class="edit-form-field">
+                            <input type="password" name="password_confirmation" placeholder="Подтверждение пароля">
+                            <button type="button" class="toggle-password">
+                                <img src="{{ asset('assets/img/icon/eye-open.svg') }}" alt="toggle">
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="edit-form-field">
-                    <img class="edit-form-icon" src="{{ asset('assets/img/icon/email-green.svg') }}" alt="mail">
-                    <input type="email" name="email" placeholder="Почта" value="{{ $user->email }}">
+                <div class="edit-form-btn">
+                    <button type="submit">Подтвердить изменения</button>
                 </div>
-
-                <div class="edit-form-field">
-                    <input type="password" placeholder="Пароль">
-                    <button type="button" class="toggle-password">
-                        <img src="{{ asset('assets/img/icon/eye-open.svg') }}" alt="toggle">
-                    </button>
-                </div>
-
-                <div class="edit-form-field">
-                    <input type="password" placeholder="Подтверждение пароля">
-                    <button type="button" class="toggle-password">
-                        <img src="{{ asset('assets/img/icon/eye-open.svg') }}" alt="toggle">
-                    </button>
-                </div>
-            </div>
-            <div class="edit-form-btn">
-                <button type="submit">Подтвердить изменения</button>
-            </div>
+            </form>
         </section>
 
         <section class="edit-avatar-img">

@@ -161,23 +161,6 @@ body {
   background-color: var(--purple);
 }
 
-.field-error {
-    border-color: var(--error);
-}
-
-.error-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding-left: 25px;
-    margin-top: 2px;
-}
-
-.error-text {
-    font-size: 0.75rem;
-    color: var(--error);
-}
-
 @media (max-width: 720px) {
   html {
     font-size: 14px;

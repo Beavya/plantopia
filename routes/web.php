@@ -32,6 +32,11 @@ Route::post('/forgot-password', [AuthController::class, 'sendNewPassword'])
 Route::get('/settings', [PersonalAccountController::class, 'showSettings'])
     ->middleware('auth')
     ->name('settings');
+    
 Route::post('/settings/avatar', [PersonalAccountController::class, 'updateAvatar'])
     ->middleware('auth')
     ->name('settings.avatar');
+
+Route::post('/settings/profile', [PersonalAccountController::class, 'updateProfile'])
+    ->middleware('auth')
+    ->name('settings.profile');

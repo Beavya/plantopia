@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/personal-account.css') }}">
     @stack('styles')
     @stack('scripts')
+    <script src="{{ asset('assets/js/forms.js') }}" defer></script>
 </head>
 <body>
     <div class="wrapper">

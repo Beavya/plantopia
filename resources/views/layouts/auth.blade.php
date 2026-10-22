@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/auth.css') }}">
     @stack('styles')
     @stack('scripts')
+    <script src="{{ asset('assets/js/forms.js') }}" defer></script>
     <script src="{{ asset('assets/js/auth.js') }}" defer></script>
 </head>
 <body>

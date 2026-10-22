@@ -11,17 +11,10 @@
                 @csrf
                 <div class="form-content">
                     <div class="form-field-error">
-                        <div class="form-field @error('email') field-error @enderror">
+                        <div class="form-field">
                             <img src="{{ asset('assets/img/icon/email-green.svg') }}" alt="email">
-                            <input type="email" name="email" placeholder="Почта" value="{{ old('email') }}">
+                            <input type="email" name="email" placeholder="Почта">
                         </div>
-                        @if ($errors->has('email'))
-                            <div class="error-list">
-                                @foreach ($errors->get('email') as $error)
-                                    <span class="error-text">{{ $error }}</span>
-                                @endforeach
-                            </div>
-                        @endif
                     </div>
 
                     <p>Новый пароль придет на почту, после отправки вас перенаправит на авторизацию</p>

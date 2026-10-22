@@ -27,6 +27,10 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        if ($request->expectsJson()) {
+            return response()->json(['redirect' => route('login')]);
+        }
+
         return redirect('/login');
     }
 
@@ -40,7 +44,17 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
+            if ($request->expectsJson()) {
+                return response()->json(['redirect' => route('home')]);
+            }
+
             return redirect('/');
+        }
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'errors' => ['login' => ['Неверный email или пароль']],
+            ], 422);
         }
 
         return back()->withErrors([
@@ -70,6 +84,10 @@ class AuthController extends Controller
 
         Mail::to($user->email)->send(new NewPasswordMail($newPassword));
 
-        return redirect('/login')->with('success', 'Новый пароль отправлен на почту');
+        if ($request->expectsJson()) {
+            return response()->json(['redirect' => route('login')]);
+        }
+
+        return redirect('/login');
     }
 }

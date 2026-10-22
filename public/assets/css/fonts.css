@@ -55,3 +55,20 @@ button {
   background: none;
   cursor: pointer;
 }
+
+.field-error {
+    border-color: var(--error);
+}
+
+.error-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 25px;
+    margin-top: 2px;
+}
+
+.error-text {
+    font-size: 0.75rem;
+    color: var(--error);
+}
