@@ -24,10 +24,16 @@ class PersonalAccountController extends Controller
     public function updateProfile(UpdateProfileRequest $request)
     {
         $user = Auth::user();
-        $user->name = $request->name;
-        $user->email = $request->email;
 
-        if ($request->password !== null) {
+        if (!empty($request->name)) {
+            $user->name = $request->name;
+        }
+
+        if (!empty($request->email)) {
+            $user->email = $request->email;
+        }
+
+        if (!empty($request->password)) {
             $user->password = Hash::make($request->password);
         }
 

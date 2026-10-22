@@ -51,34 +51,40 @@ function clearErrors(form) {
 }
 
 function showErrors(form, errors) {
+    const lastField = form.querySelector('.form-field-error:last-child')
+        || form.querySelector('.edit-form-field-error:last-child');
+
+    if (!lastField) {
+        return;
+    }
+
+    const errorList = document.createElement('div');
+    errorList.className = 'error-list';
+
+    const shownMessages = new Set();
+
     Object.keys(errors).forEach((fieldName) => {
         const field = form.querySelector(`[name="${fieldName}"]`);
-        if (!field) {
-            return;
+        if (field) {
+            const wrapper = field.closest('.edit-form-field') || field.closest('.form-field');
+            if (wrapper) {
+                wrapper.classList.add('field-error');
+            }
         }
-
-        const wrapper = field.closest('.edit-form-field') || field.closest('.form-field');
-        if (!wrapper) {
-            return;
-        }
-
-        wrapper.classList.add('field-error');
-
-        const parent = wrapper.parentElement;
-        if (!parent) {
-            return;
-        }
-
-        const errorList = document.createElement('div');
-        errorList.className = 'error-list';
 
         errors[fieldName].forEach((message) => {
+            if (shownMessages.has(message)) {
+                return;
+            }
+
+            shownMessages.add(message);
+
             const errorText = document.createElement('span');
             errorText.className = 'error-text';
             errorText.textContent = message;
             errorList.appendChild(errorText);
         });
-
-        parent.appendChild(errorList);
     });
+
+    lastField.appendChild(errorList);
 }
