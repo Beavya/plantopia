@@ -14,7 +14,7 @@ class UpdateAvatarRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'avatar_id' => ['exists:avatars,id'],
+            'avatar_id' => ['required', 'exists:avatars,id'],
         ];
     }
 }

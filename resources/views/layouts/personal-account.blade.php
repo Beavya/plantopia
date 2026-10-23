@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/personal-account.css') }}">
     @stack('styles')
     @stack('scripts')
@@ -30,7 +30,7 @@
                             </div>
                             <div class="sidebar-nav-item @yield('nav-settings')">
                                 <img src="{{ asset('assets/img/icon/settings.svg') }}" alt="settings">
-                                <a href="#">Настройки</a>
+                                <a href="{{ route('settings') }}">Настройки</a>
                             </div>
                         </nav>
                     </div>
@@ -42,6 +42,14 @@
             </aside>
 
             <div class="profile-main-content">
+                <section id="header">
+                    <div class="header-title">
+                        <p>@yield('header-title')</p>
+                    </div>
+                    <img class="header-burger" src="{{ asset('assets/img/icon/burger-menu-green.svg') }}" alt="menu">
+                    <a class="header-main" href="{{ route('home') }}">На главную</a>
+                </section>
+
                 @yield('content')
             </div>
         </main>

@@ -10,18 +10,10 @@
 @endpush
 
 @section('title', 'Настройки')
+@section('header-title', 'Настройки')
 @section('nav-settings', 'sidebar-nav-item-active')
 
 @section('content')
-    <section id="header">
-        <div class="header-title">
-            <a href="#"><img id="header-left-arrow" src="{{ asset('assets/img/icon/arrow-headder.svg') }}" alt="left arrow"></a>
-            <p>Настройки</p>
-        </div>
-        <img class="header-burger" src="{{ asset('assets/img/icon/burger-menu-green.svg') }}" alt="menu">
-        <a class="header-main" href="#">На главную</a>
-    </section>
-
     <div class="container-edits">
         <section class="edit-form">
             <h4>Персональные данные:</h4>
@@ -30,21 +22,21 @@
                 @csrf
 
                 <div class="edit-form-fields">
-                    <div class="edit-form-field-error">
+                    <div class="form-field-error">
                         <div class="edit-form-field">
                             <img class="edit-form-icon" src="{{ asset('assets/img/icon/person.svg') }}" alt="person">
                             <input type="text" name="name" placeholder="Имя" value="{{ $user->name }}">
                         </div>
                     </div>
 
-                    <div class="edit-form-field-error">
+                    <div class="form-field-error">
                         <div class="edit-form-field">
                             <img class="edit-form-icon" src="{{ asset('assets/img/icon/email-green.svg') }}" alt="mail">
                             <input type="email" name="email" placeholder="Почта" value="{{ $user->email }}">
                         </div>
                     </div>
 
-                    <div class="edit-form-field-error">
+                    <div class="form-field-error">
                         <div class="edit-form-field">
                             <input type="password" name="password" placeholder="Пароль">
                             <button type="button" class="toggle-password">
@@ -53,7 +45,7 @@
                         </div>
                     </div>
 
-                    <div class="edit-form-field-error">
+                    <div class="form-field-error">
                         <div class="edit-form-field">
                             <input type="password" name="password_confirmation" placeholder="Подтверждение пароля">
                             <button type="button" class="toggle-password">

@@ -1,7 +1,7 @@
-<footer class="footer">
+<footer class="footer" id="footer">
     <div class="footer-content">
         <div class="footer-brand">
-            <a href="#" class="footer-logo">
+            <a href="{{ route('home') }}" class="footer-logo">
                 <img src="{{ asset('assets/img/icon/logo-green.svg') }}" alt="plantopia">
             </a>
             <div class="footer-social">
@@ -13,16 +13,15 @@
 
         <nav class="footer-nav">
             <span>Главная страница</span>
-            <a href="#">Виды растений</a>
-            <a href="#">Растения</a>
-            <a href="#">О нас</a>
-            <a href="#">Контакты</a>
+            <a href="{{ route('home') }}#catalog">Растения</a>
+            <a href="{{ route('home') }}#about-us">О нас</a>
+            <a href="{{ route('home') }}#footer">Контакты</a>
         </nav>
 
         <nav class="footer-nav">
             <span>Личный кабинет</span>
             <a href="#">Коллекция</a>
-            <a href="#">Настройки</a>
+            <a href="{{ route('settings') }}">Настройки</a>
         </nav>
     </div>
 </footer>

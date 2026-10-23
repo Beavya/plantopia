@@ -6,21 +6,19 @@ return [
     'email' => 'Некорректный email',
     'unique' => 'Поле :attribute уже занято',
     'exists' => 'Пользователь с такой почтой не найден',
-    'max' => [
-        'string' => 'Максимум :max символов',
-    ],
     'min' => [
-        'string' => 'Минимум :min символов',
+        'string' => 'Поле :attribute: минимум :min символов',
+    ],
+    'max' => [
+        'string' => 'Поле :attribute: максимум :max символов',
     ],
     'confirmed' => 'Пароли не совпадают',
     'regex' => 'Недопустимые символы',
 
     'attributes' => [
-        'name' => 'Имя',
-        'email' => 'Почта',
-        'password' => 'Пароль',
-        'password_confirmation' => 'Подтверждение пароля',
-        'current_password' => 'Текущий пароль',
+        'name' => 'имя',
+        'email' => 'почта',
+        'password' => 'пароль',
     ],
 
 ];

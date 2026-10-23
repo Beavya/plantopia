@@ -9,9 +9,4 @@ class Avatar extends Model
     protected $fillable = [
         'file',
     ];
-
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
 }

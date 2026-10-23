@@ -51,8 +51,7 @@ function clearErrors(form) {
 }
 
 function showErrors(form, errors) {
-    const lastField = form.querySelector('.form-field-error:last-child')
-        || form.querySelector('.edit-form-field-error:last-child');
+    const lastField = form.querySelector('.form-field-error:last-child');
 
     if (!lastField) {
         return;

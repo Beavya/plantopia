@@ -19,7 +19,8 @@ class NewPasswordMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Восстановление пароля')
+        return $this->from(config('mail.from.address'), config('mail.from.name'))
+            ->subject('Восстановление пароля')
             ->view('emails.new-password');
     }
 }

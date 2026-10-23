@@ -43,7 +43,7 @@
                             <div class="form-field">
                                 <input type="password" name="password_confirmation" placeholder="Подтверждение пароля">
                                 <button type="button" class="toggle-password">
-                                    <img src="{{ asset('assets/img/icon/eye-close.svg') }}" alt="toggle">
+                                    <img src="{{ asset('assets/img/icon/eye-open.svg') }}" alt="toggle">
                                 </button>
                             </div>
                         </div>

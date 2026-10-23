@@ -27,11 +27,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        if ($request->expectsJson()) {
-            return response()->json(['redirect' => route('login')]);
-        }
-
-        return redirect('/login');
+        return $this->redirectTo('login');
     }
 
     public function showLogin()
@@ -44,28 +40,24 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            if ($request->expectsJson()) {
-                return response()->json(['redirect' => route('home')]);
-            }
-
-            return redirect('/');
+            return $this->redirectTo('home');
         }
 
         if ($request->expectsJson()) {
             return response()->json([
-                'errors' => ['login' => ['Неверный email или пароль']],
+                'errors' => ['email' => ['Неверный email или пароль']],
             ], 422);
         }
 
         return back()->withErrors([
-            'login' => 'Неверный email или пароль',
+            'email' => 'Неверный email или пароль',
         ]);
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect('/login');
+        return redirect()->route('login');
     }
 
     public function showForgotPassword()
@@ -84,10 +76,15 @@ class AuthController extends Controller
 
         Mail::to($user->email)->send(new NewPasswordMail($newPassword));
 
-        if ($request->expectsJson()) {
-            return response()->json(['redirect' => route('login')]);
+        return $this->redirectTo('login');
+    }
+
+    private function redirectTo($route)
+    {
+        if (request()->expectsJson()) {
+            return response()->json(['redirect' => route($route)]);
         }
 
-        return redirect('/login');
+        return redirect()->route($route);
     }
 }

@@ -25,13 +25,8 @@ class PersonalAccountController extends Controller
     {
         $user = Auth::user();
 
-        if (!empty($request->name)) {
-            $user->name = $request->name;
-        }
-
-        if (!empty($request->email)) {
-            $user->email = $request->email;
-        }
+        $user->name = $request->name;
+        $user->email = $request->email;
 
         if (!empty($request->password)) {
             $user->password = Hash::make($request->password);
@@ -39,11 +34,7 @@ class PersonalAccountController extends Controller
 
         $user->save();
 
-        if ($request->expectsJson()) {
-            return response()->json(['redirect' => route('settings')]);
-        }
-
-        return redirect()->route('settings');
+        return $this->redirectToSettings();
     }
 
     public function updateAvatar(UpdateAvatarRequest $request)
@@ -52,7 +43,12 @@ class PersonalAccountController extends Controller
         $user->avatar_id = $request->avatar_id;
         $user->save();
 
-        if ($request->expectsJson()) {
+        return $this->redirectToSettings();
+    }
+
+    private function redirectToSettings()
+    {
+        if (request()->expectsJson()) {
             return response()->json(['redirect' => route('settings')]);
         }
 

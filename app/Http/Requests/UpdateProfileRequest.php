@@ -14,8 +14,8 @@ class UpdateProfileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['nullable', 'regex:/^[a-zA-Z0-9]+$/', 'max:255', 'unique:users,name,' . $this->user()->id],
-            'email' => ['nullable', 'email', 'max:255', 'unique:users,email,' . $this->user()->id],
+            'name' => ['required', 'regex:/^[a-zA-Z0-9]+$/', 'max:255', 'unique:users,name,' . auth()->id()],
+            'email' => ['required', 'email', 'max:255', 'unique:users,email,' . auth()->id()],
             'password' => ['nullable', 'regex:/^[a-zA-Z0-9!@#$%^&*]+$/', 'min:6', 'max:255', 'confirmed'],
             'password_confirmation' => ['nullable'],
         ];
