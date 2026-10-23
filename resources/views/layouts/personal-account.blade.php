@@ -17,9 +17,6 @@
                 <div class="sidebar-content">
                     <div class="sidebar-avatar">
                         <img src="{{ asset('assets/img/avatars/' . $user->avatar->file) }}" alt="avatar">
-                        <button class="sidebar-avatar-edit">
-                            <img src="{{ asset('assets/img/icon/pancil-green.svg') }}" alt="edit">
-                        </button>
                     </div>
                     <div class="sidebar-info">
                         <p class="sidebar-username">{{ $user->name }}</p>

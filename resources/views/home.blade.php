@@ -23,7 +23,12 @@
                 <p>Начни собирать растения, которые тебе по душе. Учись ухаживать за ними и находи необычные сорта. Каждый из них добавит жизни твоему пространству.</p>
             </div>
             <div class="main-banner-actions">
-                <a href="{{ route('settings') }}">Профиль</a>
+                @auth
+                    <a href="{{ route('settings') }}">Профиль</a>
+                @else
+                    <a href="{{ route('login') }}">Вход</a>
+                    <a href="{{ route('register') }}">Регистрация</a>
+                @endauth
             </div>
         </section>
     </div>
@@ -62,140 +67,22 @@
                 </div>
 
                 <div class="catalog-list">
-                    <article class="plant-card big-card">
-                        <img class="plant-card-img" src="{{ asset('assets/img/plants/washingtonia.png') }}" alt="washingtonia">
-                        <div class="plant-card-content">
-                            <div class="plant-card-info">
-                                <h3>Вашингтония</h3>
-                                <p>Веерная пальма, которая привносит...</p>
+                    @foreach ($plants as $index => $plant)
+                        <article class="plant-card {{ $index === 0 ? 'big-card' : '' }}">
+                            <img class="plant-card-img" src="{{ asset('assets/img/plants/' . $plant->image) }}" alt="{{ $plant->name }}">
+                            <div class="plant-card-content">
+                                <div class="plant-card-info">
+                                    <h3>{{ $plant->name }}</h3>
+                                    <p>{{ \Illuminate\Support\Str::limit($plant->description, 30) }}</p>
+                                </div>
+                                @auth
+                                    <div class="plant-card-actions">
+                                        <img src="{{ asset('assets/img/icon/book-white.svg') }}" alt="collection">
+                                    </div>
+                                @endauth
                             </div>
-                            <div class="plant-card-actions">
-                                <img src="{{ asset('assets/img/icon/book-white.svg') }}" alt="collection">
-                                <img src="{{ asset('assets/img/icon/heart-white.svg') }}" alt="favorites">
-                                <img src="{{ asset('assets/img/icon/pencil-white.svg') }}" alt="note">
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="plant-card">
-                        <img class="plant-card-img" src="{{ asset('assets/img/plants/murraya.png') }}" alt="murraya">
-                        <div class="plant-card-content">
-                            <div class="plant-card-info">
-                                <h3>Муррайя</h3>
-                                <p>Вечнозеленое растение...</p>
-                            </div>
-                            <div class="plant-card-actions">
-                                <img src="{{ asset('assets/img/icon/book-purple.svg') }}" alt="collection">
-                                <img src="{{ asset('assets/img/icon/heart-white.svg') }}" alt="favorites">
-                                <img src="{{ asset('assets/img/icon/pencil-white.svg') }}" alt="note">
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="plant-card">
-                        <img class="plant-card-img" src="{{ asset('assets/img/plants/rhipsalis.png') }}" alt="rhipsalis">
-                        <div class="plant-card-content">
-                            <div class="plant-card-info">
-                                <h3>Рипсалис</h3>
-                                <p>Неприхотливый кактус...</p>
-                            </div>
-                            <div class="plant-card-actions">
-                                <img src="{{ asset('assets/img/icon/book-white.svg') }}" alt="collection">
-                                <img src="{{ asset('assets/img/icon/heart-purple.svg') }}" alt="favorites">
-                                <img src="{{ asset('assets/img/icon/pencil-white.svg') }}" alt="note">
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="plant-card">
-                        <img class="plant-card-img" src="{{ asset('assets/img/plants/dracaena-draco.png') }}" alt="dracaena draco">
-                        <div class="plant-card-content">
-                            <div class="plant-card-info">
-                                <h3>Дерево дракона</h3>
-                                <p>Медленно растущее...</p>
-                            </div>
-                            <div class="plant-card-actions">
-                                <img src="{{ asset('assets/img/icon/book-white.svg') }}" alt="collection">
-                                <img src="{{ asset('assets/img/icon/heart-white.svg') }}" alt="favorites">
-                                <img src="{{ asset('assets/img/icon/pencil-white.svg') }}" alt="note">
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="plant-card">
-                        <img class="plant-card-img" src="{{ asset('assets/img/plants/orchid.png') }}" alt="orchid">
-                        <div class="plant-card-content">
-                            <div class="plant-card-info">
-                                <h3>Орхидея</h3>
-                                <p>Царица цветов...</p>
-                            </div>
-                            <div class="plant-card-actions">
-                                <img src="{{ asset('assets/img/icon/book-purple.svg') }}" alt="collection">
-                                <img src="{{ asset('assets/img/icon/heart-white.svg') }}" alt="favorites">
-                                <img src="{{ asset('assets/img/icon/pencil-purple.svg') }}" alt="note">
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="plant-card">
-                        <img class="plant-card-img" src="{{ asset('assets/img/plants/chlorophytum.png') }}" alt="chlorophytum">
-                        <div class="plant-card-content">
-                            <div class="plant-card-info">
-                                <h3>Хлорофитум</h3>
-                                <p>Неприхотливый...</p>
-                            </div>
-                            <div class="plant-card-actions">
-                                <img src="{{ asset('assets/img/icon/book-white.svg') }}" alt="collection">
-                                <img src="{{ asset('assets/img/icon/heart-white.svg') }}" alt="favorites">
-                                <img src="{{ asset('assets/img/icon/pencil-white.svg') }}" alt="note">
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="plant-card">
-                        <img class="plant-card-img" src="{{ asset('assets/img/plants/violet.png') }}" alt="violet">
-                        <div class="plant-card-content">
-                            <div class="plant-card-info">
-                                <h3>Фиалка</h3>
-                                <p>Компактное растение...</p>
-                            </div>
-                            <div class="plant-card-actions">
-                                <img src="{{ asset('assets/img/icon/book-white.svg') }}" alt="collection">
-                                <img src="{{ asset('assets/img/icon/heart-white.svg') }}" alt="favorites">
-                                <img src="{{ asset('assets/img/icon/pencil-white.svg') }}" alt="note">
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="plant-card">
-                        <img class="plant-card-img" src="{{ asset('assets/img/plants/crassula.png') }}" alt="crassula">
-                        <div class="plant-card-content">
-                            <div class="plant-card-info">
-                                <h3>Толстянка</h3>
-                                <p>Символ богатства...</p>
-                            </div>
-                            <div class="plant-card-actions">
-                                <img src="{{ asset('assets/img/icon/book-white.svg') }}" alt="collection">
-                                <img src="{{ asset('assets/img/icon/heart-purple.svg') }}" alt="favorites">
-                                <img src="{{ asset('assets/img/icon/pencil-white.svg') }}" alt="note">
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="plant-card">
-                        <img class="plant-card-img" src="{{ asset('assets/img/plants/schlumbergera.png') }}" alt="schlumbergera">
-                        <div class="plant-card-content">
-                            <div class="plant-card-info">
-                                <h3>Шлюмбергера</h3>
-                                <p>Лесной кактус...</p>
-                            </div>
-                            <div class="plant-card-actions">
-                                <img src="{{ asset('assets/img/icon/book-white.svg') }}" alt="collection">
-                                <img src="{{ asset('assets/img/icon/heart-white.svg') }}" alt="favorites">
-                                <img src="{{ asset('assets/img/icon/pencil-white.svg') }}" alt="note">
-                            </div>
-                        </div>
-                    </article>
+                        </article>
+                    @endforeach
                 </div>
 
                 <div class="catalog-pagination">

@@ -10,6 +10,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AvatarSeeder::class,
+            CategorySeeder::class,
+            PlantSeeder::class,
         ]);
     }
 }

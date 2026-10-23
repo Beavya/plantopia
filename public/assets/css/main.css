@@ -262,6 +262,7 @@ body {
   border-radius: 10px;
   width: 358px;
   height: 358px;
+  cursor: pointer;
 }
 
 .plant-card-content {
@@ -298,7 +299,6 @@ body {
 .plant-card-actions img {
   width: 25px;
   height: 22px;
-  cursor: pointer;
 }
 
 .plant-card:hover .plant-card-actions {

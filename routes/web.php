@@ -3,10 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PersonalAccountController;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/register', [AuthController::class, 'showRegister'])
     ->middleware('guest')
@@ -32,7 +31,7 @@ Route::post('/forgot-password', [AuthController::class, 'sendNewPassword'])
 Route::get('/settings', [PersonalAccountController::class, 'showSettings'])
     ->middleware('auth')
     ->name('settings');
-    
+
 Route::post('/settings/avatar', [PersonalAccountController::class, 'updateAvatar'])
     ->middleware('auth')
     ->name('settings.avatar');
