@@ -163,7 +163,7 @@ class PlantSeeder extends Seeder
 
             $plant = Plant::create($plantData);
 
-            $categoryIds = Category::whereIn('name', $categories)->pluck('id');
+            $categoryIds = Category::whereIn('name', $categories)->pluck('category_id'); // <--- ВОТ ЗДЕСЬ БЫЛО 'id', СТАЛО 'category_id'
             $plant->categories()->attach($categoryIds);
         }
     }

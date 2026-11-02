@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Avatar extends Model
 {
+    protected $primaryKey = 'avatar_id';
+
     protected $fillable = [
         'file',
     ];
